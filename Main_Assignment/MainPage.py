@@ -1,10 +1,7 @@
 import Admin
 import Register
 import User
-
-
 class MainPage:
-
     def main(self):
         while True:
             print("\t\t_________________________________________")
@@ -14,7 +11,7 @@ class MainPage:
             print("\t\t\t2-> Resgister new user")
             print("\t\t\t3-> User login")
             print("\t\t\t4-> Exit")
-            choice = eval(input("\t\t\tEnter your choice(1/2/3):-"))
+            choice = eval(input("\t\t\tEnter your choice(1/2/3/4):-"))
             if choice == 1:
                 am = Admin.Admin()
                 am.adminscreen()

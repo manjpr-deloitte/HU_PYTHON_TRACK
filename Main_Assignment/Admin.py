@@ -1,7 +1,6 @@
 class Admin:
     added_movies = []
     movie_timings={}
-
     def adminscreen(self):
         username = "admin"
         password = "admin123"
@@ -22,12 +21,12 @@ class Admin:
                         self.add_movies()
                     elif choice2 == 2:
                         self.edit_movies()
-                    # elif choice2 == 3:
-                    #     edit_timings()
+                    elif choice2 == 3:
+                        self.delete_movies()
                     elif choice2 == 4:
                         break
-                    # else:
-                    #     print("Invalid input")
+                    else:
+                         print("Invalid input")
             else:
                 print("Wrong Password.")
                 print("1-> Try again")
@@ -113,15 +112,24 @@ class Admin:
         print(self.movie_timings)
 
     def edit_movies(self):
-
+        if (len(self.added_movies) == 0):
+            print("First add the movie!! ")
+            self.add_movies()
+            return
         for i in range(len(self.added_movies)):
             print(self.added_movies[i]["title"])
 
         toEditTitle = input("Enter the movie title which you want to be updated")
+        if self.added_movies[i]["title"] == toEditTitle:
+            cont="y"
+        else:
+            self.edit_movies()
+            return
+
         print("Enter which data you want to edit")
         print(
             "1.Genre\n2.Cast\n3.Director\n4.Admin Rating\n5.Language\n6.Length\tTimings\tNumber of Shows\t.First Show\tInterval\tTimeGap\tCapacity")
-        while True:
+        while "y":
             n = int(input("Enter your choice which you want to edit or -1 to exit\n"))
 
             if (n == -1):
@@ -221,12 +229,13 @@ class Admin:
 
     def delete_movies(self):
         if (len(self.added_movies) == 0):
-            print("first enter the details")
+            print("First add the Movie details:- ")
             self.add_movies()
+            return
         print("List of movies")
         for i in range(len(self.added_movies)):
             print(self.added_movies[i]["title"])
-        toDeleteMovie = input("Enter the movie name to be deleted")
+        toDeleteMovie = input("Enter the movie name to be deleted:- ")
         flag = 0
         flag1 = 0
         for i in range(len(self.added_movies)):
