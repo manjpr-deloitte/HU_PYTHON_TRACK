@@ -60,7 +60,7 @@ class Admin:
         mov_director = input("Enter the director of the movie:-")
         Movies.update({"director": mov_director})
 
-        mov_rating = eval(input("Enter the rating of the movie:-"))
+        mov_rating = eval(input("Enter the rating of the movie(?\10):-"))
         Movies.update({"rating": mov_rating})
 
         mov_lang = input("Enter the language of the movie:-")
